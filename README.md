@@ -1,11 +1,11 @@
 💫 Hi 👋, I'm Sonu
 Android App Developer | Sketchware / SketchCode User | Indie Creator
 
-📧 Contact: codebysonu95@gmail.com                                                                             
+                                                                           
 🔭 Currently working on: SketchCode (My personal project hub)      
 🌱 Learning: Advanced Android & App Optimization       
 💬 Ask me about: Android, Sketchware, App Logic         
-📫 Reach me at: codebysonu95@gmail.com                 
+📫 Contact: codebysonu95@gmail.com                              
 ⚡ Fun fact: I build apps solo, no shortcuts.         
 
 
