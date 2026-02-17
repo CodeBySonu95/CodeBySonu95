@@ -4,10 +4,11 @@ Android App Developer | Sketchware / SketchCode User | Indie Creator
                                                                            
 🔭 Currently working on: SketchCode (My personal project hub)      
 🌱 Learning: Advanced Android & App Optimization       
-💬 Ask me about: Android, Sketchware, App Logic         
-📫 Contact: codebysonu95@gmail.com                              
+💬 Ask me about: Android, Sketchware, App Logic  
 ⚡ Fun fact: I build apps solo, no shortcuts.         
-
+👨‍💻 Author: CodeBySonu95  
+🔗 GitHub: github.com/CodeBySonu95
+📫 Contact: codebysonu95@gmail.com                              
 
 # 💻 Tech Stack:
 ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
