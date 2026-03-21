@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeBySonu95 — Android Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #0A0D14;
+    --bg2:      #111520;
+    --surface:  #161B28;
+    --border:   #1C2333;
+    --blue:     #1D61FF;
+    --green:    #39D353;
+    --text:     #FFFFFF;
+    --text-mid: #8892A4;
+    --text-dim: #3D4A5C;
+    --blue-glow: rgba(29,97,255,0.35);
+    --green-glow: rgba(57,211,83,0.35);
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CURSOR */
+  .cursor {
+    width:10px; height:10px; border-radius:50%;
+    background: var(--blue);
+    position:fixed; pointer-events:none; z-index:9999;
+    transition:transform 0.1s, background 0.3s;
+    box-shadow: 0 0 16px var(--blue-glow);
+  }
+  .cursor-ring {
+    width:32px; height:32px; border-radius:50%;
+    border:1px solid rgba(29,97,255,0.4);
+    position:fixed; pointer-events:none; z-index:9998;
+    transition:all 0.15s ease;
+  }
+
+  /* GRID */
+  body::before {
+    content:''; position:fixed; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size:40px 40px;
+    pointer-events:none; z-index:0;
+  }
+
+  /* CORNERS */
+  .corner { position:fixed; width:44px; height:44px; pointer-events:none; z-index:5; }
+  .corner-tl { top:16px; left:16px;  border-top:1px solid rgba(29,97,255,0.25); border-left:1px solid rgba(29,97,255,0.25); }
+  .corner-tr { top:16px; right:16px; border-top:1px solid rgba(57,211,83,0.25); border-right:1px solid rgba(57,211,83,0.25); }
+  .corner-bl { bottom:16px; left:16px;  border-bottom:1px solid rgba(57,211,83,0.25); border-left:1px solid rgba(57,211,83,0.25); }
+  .corner-br { bottom:16px; right:16px; border-bottom:1px solid rgba(29,97,255,0.25); border-right:1px solid rgba(29,97,255,0.25); }
+
+  .container { max-width:920px; margin:0 auto; padding:0 24px; position:relative; z-index:2; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height:100vh;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    text-align:center; padding:60px 24px;
+    position:relative; z-index:2;
+  }
+
+  .hero-glow-blue {
+    position:absolute; width:500px; height:500px;
+    background:radial-gradient(circle, rgba(29,97,255,0.07) 0%, transparent 70%);
+    top:40%; left:30%; transform:translate(-50%,-50%);
+    pointer-events:none;
+    animation:glowpulse 5s ease-in-out infinite;
+  }
+  .hero-glow-green {
+    position:absolute; width:400px; height:400px;
+    background:radial-gradient(circle, rgba(57,211,83,0.06) 0%, transparent 70%);
+    top:60%; left:70%; transform:translate(-50%,-50%);
+    pointer-events:none;
+    animation:glowpulse 5s ease-in-out infinite reverse;
+  }
+  @keyframes glowpulse {
+    0%,100%{ opacity:0.5; transform:translate(-50%,-50%) scale(1); }
+    50%    { opacity:1;   transform:translate(-50%,-50%) scale(1.2); }
+  }
+
+  .hero-tag {
+    font-family:'Share Tech Mono', monospace;
+    font-size:11px; letter-spacing:4px; text-transform:uppercase;
+    color:var(--text-dim); margin-bottom:24px;
+  }
+  .hero-tag span.b { color:var(--blue); }
+  .hero-tag span.g { color:var(--green); }
+
+  .hero-name {
+    font-family:'Syne', sans-serif;
+    font-size:clamp(48px, 9vw, 96px);
+    font-weight:800; letter-spacing:-3px; line-height:1;
+    margin-bottom:6px;
+  }
+  .hero-name .b { color:var(--blue); }
+  .hero-name .g { color:var(--green); }
+  .hero-name .d { color:var(--text-dim); }
+
+  .hero-sub {
+    font-family:'Share Tech Mono', monospace;
+    font-size:clamp(11px, 1.8vw, 14px);
+    color:var(--text-mid); letter-spacing:3px;
+    text-transform:uppercase; margin-bottom:40px;
+  }
+
+  .hero-stats {
+    display:flex; gap:40px; flex-wrap:wrap; justify-content:center;
+    margin-bottom:48px;
+  }
+  .stat { text-align:center; }
+  .stat-num {
+    font-family:'Syne',sans-serif; font-size:28px; font-weight:800;
+    background:linear-gradient(135deg, var(--blue), var(--green));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .stat-lbl { font-size:10px; color:var(--text-dim); letter-spacing:2px; text-transform:uppercase; margin-top:4px; }
+
+  .hero-links { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+  .hero-btn {
+    padding:10px 24px; font-family:'Share Tech Mono',monospace;
+    font-size:11px; letter-spacing:2px; text-transform:uppercase;
+    text-decoration:none; transition:all 0.3s; border:1px solid;
+    position:relative; overflow:hidden;
+  }
+  .hero-btn::before { content:''; position:absolute; inset:0; opacity:0; transition:opacity 0.3s; }
+  .hero-btn:hover::before { opacity:0.12; }
+  .hero-btn:hover { transform:translateY(-2px); }
+  .hero-btn.b { color:var(--blue); border-color:var(--blue); }
+  .hero-btn.b::before { background:var(--blue); }
+  .hero-btn.b:hover { box-shadow:0 0 20px var(--blue-glow); }
+  .hero-btn.g { color:var(--green); border-color:var(--green); }
+  .hero-btn.g::before { background:var(--green); }
+  .hero-btn.g:hover { box-shadow:0 0 20px var(--green-glow); }
+  .hero-btn.dim { color:var(--text-dim); border-color:var(--text-dim); }
+  .hero-btn.dim:hover { color:var(--text); border-color:var(--text-mid); }
+
+  .scroll-hint {
+    position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    color:var(--text-dim); font-size:10px; letter-spacing:2px;
+    animation:bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+  .scroll-line { width:1px; height:36px; background:linear-gradient(to bottom, var(--text-dim), transparent); }
+
+  /* ── SECTION ── */
+  section { padding:80px 0; }
+  .section-label {
+    font-family:'Share Tech Mono',monospace; font-size:11px;
+    letter-spacing:3px; text-transform:uppercase; margin-bottom:16px;
+  }
+  .section-label.b { color:var(--blue); }
+  .section-label.g { color:var(--green); }
+  .section-title {
+    font-family:'Syne',sans-serif;
+    font-size:clamp(28px,5vw,48px); font-weight:800;
+    letter-spacing:-1.5px; line-height:1.1; margin-bottom:40px;
+  }
+  .hl-b { color:var(--blue); }
+  .hl-g { color:var(--green); }
+
+  /* ── APP CARDS ── */
+  .apps-grid { display:flex; flex-direction:column; gap:24px; }
+
+  .app-card {
+    background:var(--bg2); border:1px solid var(--border);
+    border-radius:4px; overflow:hidden;
+    transition:transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    position:relative;
+  }
+  .app-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    opacity:0; transition:opacity 0.3s;
+  }
+  .app-card.blue-card::before { background:linear-gradient(90deg, transparent, var(--blue), transparent); }
+  .app-card.green-card::before { background:linear-gradient(90deg, transparent, var(--green), transparent); }
+  .app-card:hover { transform:translateY(-4px); }
+  .app-card.blue-card:hover  { border-color:rgba(29,97,255,0.4);  box-shadow:0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(29,97,255,0.1); }
+  .app-card.green-card:hover { border-color:rgba(57,211,83,0.4); box-shadow:0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(57,211,83,0.08); }
+  .app-card:hover::before { opacity:1; }
+
+  .app-card-inner { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+  @media(max-width:700px){ .app-card-inner { grid-template-columns:1fr; } }
+
+  .app-info { padding:36px; }
+  .app-number {
+    font-family:'Share Tech Mono',monospace; font-size:11px;
+    letter-spacing:3px; text-transform:uppercase; margin-bottom:16px;
+  }
+  .app-number.b { color:var(--blue); }
+  .app-number.g { color:var(--green); }
+
+  .app-title {
+    font-family:'Syne',sans-serif; font-size:28px; font-weight:800;
+    letter-spacing:-1px; margin-bottom:8px; line-height:1.1;
+  }
+  .app-tagline { font-size:12px; color:var(--text-mid); margin-bottom:20px; line-height:1.7; }
+
+  .app-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .app-tag {
+    font-family:'Share Tech Mono',monospace; font-size:10px;
+    letter-spacing:1px; padding:4px 10px; border:1px solid;
+  }
+  .app-tag.b { border-color:rgba(29,97,255,0.3); color:var(--blue); background:rgba(29,97,255,0.08); }
+  .app-tag.g { border-color:rgba(57,211,83,0.3); color:var(--green); background:rgba(57,211,83,0.08); }
+  .app-tag.d { border-color:var(--border); color:var(--text-dim); }
+
+  .app-btns { display:flex; gap:10px; flex-wrap:wrap; }
+  .app-btn {
+    padding:9px 18px; font-family:'Share Tech Mono',monospace;
+    font-size:10px; letter-spacing:1.5px; text-transform:uppercase;
+    text-decoration:none; border:1px solid; transition:all 0.3s;
+    position:relative; overflow:hidden;
+  }
+  .app-btn span { position:relative; z-index:1; }
+  .app-btn::before { content:''; position:absolute; inset:0; opacity:0; transition:opacity 0.3s; }
+  .app-btn:hover::before { opacity:0.15; }
+  .app-btn:hover { transform:translateY(-1px); }
+  .app-btn.b { color:var(--blue); border-color:var(--blue); }
+  .app-btn.b::before { background:var(--blue); }
+  .app-btn.b:hover { box-shadow:0 0 16px var(--blue-glow); }
+  .app-btn.g { color:var(--green); border-color:var(--green); }
+  .app-btn.g::before { background:var(--green); }
+  .app-btn.g:hover { box-shadow:0 0 16px var(--green-glow); }
+  .app-btn.ghost { color:var(--text-dim); border-color:var(--border); }
+  .app-btn.ghost:hover { color:var(--text); border-color:var(--text-mid); }
+
+  /* SCREENSHOTS SIDE */
+  .app-screenshots {
+    background:var(--surface);
+    border-left:1px solid var(--border);
+    padding:24px; display:flex; flex-direction:column; justify-content:center;
+  }
+  @media(max-width:700px){ .app-screenshots { border-left:none; border-top:1px solid var(--border); } }
+  .app-screenshots-label {
+    font-family:'Share Tech Mono',monospace; font-size:9px;
+    letter-spacing:2px; text-transform:uppercase;
+    color:var(--text-dim); margin-bottom:14px;
+  }
+  .ss-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+  .ss-frame {
+    border-radius:10px; overflow:hidden;
+    border:1px solid var(--border);
+    transition:transform 0.2s, border-color 0.2s;
+  }
+  .ss-frame:hover { transform:scale(1.04); }
+  .blue-card .ss-frame:hover  { border-color:rgba(29,97,255,0.4); }
+  .green-card .ss-frame:hover { border-color:rgba(57,211,83,0.4); }
+  .ss-frame img { width:100%; display:block; }
+
+  /* PROFILE */
+  .profile-block {
+    background:var(--bg2); border:1px solid var(--border);
+    border-radius:4px; padding:36px;
+    display:grid; grid-template-columns:1fr auto;
+    gap:24px; align-items:center;
+  }
+  @media(max-width:580px){ .profile-block { grid-template-columns:1fr; } }
+  .profile-block h3 { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; margin-bottom:10px; }
+  .profile-block p  { font-size:13px; color:var(--text-mid); line-height:1.8; }
+  .profile-links { display:flex; flex-direction:column; gap:10px; }
+  .profile-link {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 18px; border:1px solid var(--border);
+    font-family:'Share Tech Mono',monospace; font-size:11px;
+    letter-spacing:1px; text-decoration:none; color:var(--text-mid);
+    transition:all 0.3s; white-space:nowrap;
+  }
+  .profile-link:hover { border-color:var(--blue); color:var(--blue); box-shadow:0 0 12px var(--blue-glow); }
+
+  /* REVEAL */
+  .reveal { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* FOOTER */
+  footer {
+    padding:48px 0 32px; border-top:1px solid var(--border);
+    text-align:center; position:relative; z-index:2;
+  }
+  .footer-name { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; margin-bottom:8px; }
+  .footer-name .b { color:var(--blue); }
+  .footer-name .g { color:var(--green); }
+  .footer-quote { font-size:12px; color:var(--text-dim); margin-bottom:16px; font-style:italic; }
+  .footer-link { color:var(--text-dim); text-decoration:none; font-size:11px; letter-spacing:1px; transition:color 0.2s; }
+  .footer-link:hover { color:var(--blue); }
+
+  a { text-decoration:none; }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="corner corner-tl"></div>
+<div class="corner corner-tr"></div>
+<div class="corner corner-bl"></div>
+<div class="corner corner-br"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glow-blue"></div>
+  <div class="hero-glow-green"></div>
+
+  <p class="hero-tag"><span class="b">Android</span> · <span class="g">Open Source</span> · Developer</p>
+
+  <h1 class="hero-name">
+    <span class="d">Code</span><span class="b">By</span><span class="g">Sonu</span><span class="d">95</span>
+  </h1>
+
+  <p class="hero-sub">Building offline · private · open source Android apps</p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-lbl">Apps</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">GPL</div>
+      <div class="stat-lbl">License</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-lbl">Open Source</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-lbl">Cloud Deps</div>
+    </div>
+  </div>
+
+  <div class="hero-links">
+    <a href="https://github.com/CodeBySonu95" class="hero-btn g">⬡ GitHub Profile</a>
+    <a href="#apps" class="hero-btn b">↓ View Apps</a>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    SCROLL
+  </div>
+</div>
+
+<!-- APPS -->
+<section id="apps">
+  <div class="container">
+    <div class="section-label b reveal">01 // APPS</div>
+    <h2 class="section-title reveal">All <span class="hl-b">projects</span> &amp;<br/><span class="hl-g">apps</span></h2>
+
+    <div class="apps-grid">
+
+      <!-- VoxSherpa -->
+      <div class="app-card blue-card reveal">
+        <div class="app-card-inner">
+          <div class="app-info">
+            <div class="app-number b">01 // TTS · OFFLINE</div>
+            <div class="app-title">VoxSherpa TTS</div>
+            <p class="app-tagline">
+              Studio-quality offline neural text-to-speech for Android.<br/>
+              Hindi · English · Japanese · Chinese · 50+ languages.<br/>
+              Powered by Sherpa-ONNX · Kokoro-82M · Piper · VITS.
+            </p>
+            <div class="app-tags">
+              <span class="app-tag b">Kokoro-82M</span>
+              <span class="app-tag b">Sherpa-ONNX</span>
+              <span class="app-tag b">Piper</span>
+              <span class="app-tag b">VITS</span>
+              <span class="app-tag d">Java</span>
+              <span class="app-tag d">Android 11+</span>
+              <span class="app-tag d">GPL v3.0</span>
+            </div>
+            <div class="app-btns">
+              <a href="https://codebysonu95.github.io/VoxSherpa-TTS/" class="app-btn b"><span>↗ Website</span></a>
+              <a href="https://huggingface.co/CodeBySonu95/Sherpa-onnx-models/resolve/main/VoxSherpa-TTS_test.apk" class="app-btn b"><span>↓ APK</span></a>
+              <a href="https://github.com/CodeBySonu95/VoxSherpa-TTS" class="app-btn ghost"><span>★ GitHub</span></a>
+            </div>
+          </div>
+          <div class="app-screenshots">
+            <div class="app-screenshots-label">// screenshots</div>
+            <div class="ss-grid">
+              <div class="ss-frame"><img src="https://raw.githubusercontent.com/CodeBySonu95/VoxSherpa-TTS/main/fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" alt="Generate"/></div>
+              <div class="ss-frame"><img src="https://raw.githubusercontent.com/CodeBySonu95/VoxSherpa-TTS/main/fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" alt="Models"/></div>
+              <div class="ss-frame"><img src="https://raw.githubusercontent.com/CodeBySonu95/VoxSherpa-TTS/main/fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" alt="Library"/></div>
+              <div class="ss-frame"><img src="https://raw.githubusercontent.com/CodeBySonu95/VoxSherpa-TTS/main/fastlane/metadata/android/en-US/images/phoneScreenshots/4.jpg" alt="Settings"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GitPush Pro -->
+      <div class="app-card green-card reveal">
+        <div class="app-card-inner">
+          <div class="app-info">
+            <div class="app-number g">02 // GIT · ANDROID</div>
+            <div class="app-title">GitPush Pro</div>
+            <p class="app-tagline">
+              Push files directly to GitHub from your Android device.<br/>
+              No PC needed. Live terminal output. Commit history.<br/>
+              ~7–8 MB · No bloat · No background services.
+            </p>
+            <div class="app-tags">
+              <span class="app-tag g">GitHub API</span>
+              <span class="app-tag g">Git Push</span>
+              <span class="app-tag d">Java</span>
+              <span class="app-tag d">Android</span>
+              <span class="app-tag d">~7 MB</span>
+              <span class="app-tag d">GPL v3.0</span>
+            </div>
+            <div class="app-btns">
+              <a href="https://codebysonu95.github.io/GitPush-Pro/" class="app-btn g"><span>↗ Website</span></a>
+              <a href="https://github.com/CodeBySonu95/GitPush-Pro/releases" class="app-btn g"><span>↓ APK</span></a>
+              <a href="https://github.com/CodeBySonu95/GitPush-Pro" class="app-btn ghost"><span>★ GitHub</span></a>
+            </div>
+          </div>
+          <div class="app-screenshots">
+            <div class="app-screenshots-label">// screenshots</div>
+            <div class="ss-grid">
+              <div class="ss-frame"><img src="https://raw.githubusercontent.com/CodeBySonu95/GitPush-Pro/main/assets/screenshot2.jpg" alt="Screen 1" onerror="this.parentElement.style.background='#1C2333';this.style.display='none'"/></div>
+              <div class="ss-frame"><img src="https://raw.githubusercontent.com/CodeBySonu95/GitPush-Pro/main/assets/screenshot3.jpg" alt="Screen 2" onerror="this.parentElement.style.background='#1C2333';this.style.display='none'"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section>
+  <div class="container">
+    <div class="section-label g reveal">02 // ABOUT</div>
+    <h2 class="section-title reveal">The <span class="hl-g">developer</span></h2>
+    <div class="profile-block reveal">
+      <div>
+        <h3>CodeBySonu95</h3>
+        <p>
+          Building offline-first, privacy-focused Android apps using Java and Sketchware Pro.<br/><br/>
+          All apps are 100% open source under GPL v3.0 — no telemetry, no cloud dependencies, no compromises.
+        </p>
+      </div>
+      <div class="profile-links">
+        <a href="https://github.com/CodeBySonu95" class="profile-link">⬡ GitHub</a>
+        <a href="https://huggingface.co/CodeBySonu95" class="profile-link">🤗 HuggingFace</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-name">Code<span class="b">By</span><span class="g">Sonu</span>95</div>
+    <p class="footer-quote">"Built with obsession. Shipped with purpose."</p>
+    <a href="https://github.com/CodeBySonu95" class="footer-link">⬡ github.com/CodeBySonu95</a>
+  </div>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring   = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e=>{
+    mx=e.clientX; my=e.clientY;
+    cursor.style.left=mx-5+'px'; cursor.style.top=my-5+'px';
+  });
+  (function animRing(){
+    rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12;
+    ring.style.left=rx-16+'px'; ring.style.top=ry-16+'px';
+    requestAnimationFrame(animRing);
+  })();
+  document.querySelectorAll('a,.app-card,.hero-btn,.profile-link').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{ cursor.style.transform='scale(2)'; ring.style.transform='scale(1.5)'; });
+    el.addEventListener('mouseleave',()=>{ cursor.style.transform='scale(1)';  ring.style.transform='scale(1)'; });
+  });
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*100);
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
