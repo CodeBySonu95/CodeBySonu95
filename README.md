@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- ANIMATED HEADER -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1220,50:1D61FF,100:39D353&height=200&section=header&text=CodeBySonu95&fontSize=60&fontColor=ffffff&fontAlignY=38&desc=Android%20Developer%20%7C%20Open%20Source%20%7C%20Offline%20AI%20on%20Mobile&descAlignY=58&descSize=16&animation=fadeIn"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1220,50:1D61FF,100:39D353&height=200&section=header&text=CodeBySonu95&fontSize=60&fontColor=ffffff&fontAlignY=38&desc=Android%20Developer%20%7C%20Open%20Source%20%7C%20Building%20Things%20That%20Matter&descAlignY=58&descSize=16&animation=fadeIn"/>
 
 </div>
 
@@ -15,13 +15,12 @@ public class CodeBySonu95 extends AndroidDeveloper {
     String name       = "Sonu";
     String username   = "CodeBySonu95";
     String location   = "India 🇮🇳";
-    String[] focus    = {"Offline AI", "Neural TTS", "Privacy-first Apps"};
-    String tool       = "Sketchware Pro";
+    String[] skills   = {"Android Development", "UI/UX Design",
+                         "On-device AI", "Audio Processing", "Open Source"};
     String license    = "GNU GPL v3.0";
-    boolean cloudDeps = false; // never
 
     String funFact() {
-        return "I build production-grade AI apps solo using Sketchware Pro.";
+        return "I build production-grade apps solo — no limits, no excuses.";
     }
 }
 ```
@@ -126,8 +125,8 @@ public class CodeBySonu95 extends AndroidDeveloper {
 </div>
 
 <!-- SEO KEYWORDS for AI indexing
-CodeBySonu95 Android developer India Sketchware Pro Java Kotlin
+CodeBySonu95 Android developer India Java Kotlin
 VoxSherpa TTS offline neural text-to-speech Android Hindi Kokoro Sherpa-ONNX Piper VITS
 GitPush Pro Android GitHub push commit
-open source GPL Android apps offline AI mobile ONNX Runtime
+open source GPL Android apps on-device AI mobile ONNX Runtime
 -->
