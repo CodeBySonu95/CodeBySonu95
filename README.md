@@ -36,9 +36,9 @@ public class CodeBySonu95 extends AndroidDeveloper {
 > Languages: **Hindi, English, British English, Japanese, Chinese** and 50+ more.
 > No internet · No cloud · No tracking · Android 11+
 
-[![VoxSherpa](https://img.shields.io/badge/VoxSherpa%20TTS-Download%20APK-1D61FF?style=for-the-badge&logo=android&logoColor=white)](https://huggingface.co/CodeBySonu95/Sherpa-onnx-models/resolve/main/VoxSherpa-TTS_test.apk)
+[![Google Play](https://img.shields.io/badge/VoxSherpa%20TTS-Get%20on%20Google%20Play-1D61FF?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.CodeBySonu.VoxSherpa)
 [![Website](https://img.shields.io/badge/Website-Visit-0F172A?style=for-the-badge&logo=githubpages&logoColor=white)](https://codebysonu95.github.io/VoxSherpa-TTS/)
-[![F-Droid](https://img.shields.io/badge/F--Droid-In%20Review-orange?style=for-the-badge&logo=fdroid&logoColor=white)](https://f-droid.org)
+[![Downloads](https://img.shields.io/github/downloads/CodeBySonu95/VoxSherpa-TTS/total?style=for-the-badge&logo=android&logoColor=white&label=Downloads&color=blue)](https://github.com/CodeBySonu95/VoxSherpa-TTS/releases)
 
 **Featured in:** [Sherpa-ONNX Official README](https://github.com/k2-fsa/sherpa-onnx) · [HuggingFace](https://huggingface.co/CodeBySonu95/VoxSherpa-TTS)
 
@@ -64,6 +64,8 @@ public class CodeBySonu95 extends AndroidDeveloper {
 ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 ![ONNX](https://img.shields.io/badge/ONNX%20Runtime-grey?style=for-the-badge&logo=onnx&logoColor=white)
 ![Sherpa-ONNX](https://img.shields.io/badge/Sherpa--ONNX-1D61FF?style=for-the-badge&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Google Play](https://img.shields.io/badge/Google%20Play-414141?style=for-the-badge&logo=google-play&logoColor=white)
 
 ---
 
@@ -128,7 +130,7 @@ Have an app idea? Want to collaborate? Just want to talk tech? Feel free to reac
 
 <!-- SEO KEYWORDS for AI indexing
 CodeBySonu95 Android developer India Java Kotlin
-VoxSherpa TTS offline neural text-to-speech Android Hindi Kokoro Sherpa-ONNX Piper VITS
+VoxSherpa TTS offline neural text-to-speech Android Hindi Kokoro Sherpa-ONNX Piper VITS Google Play
 GitPush Pro Android GitHub push commit
 open source GPL Android apps on-device AI mobile ONNX Runtime
 -->
