@@ -73,8 +73,6 @@ public class CodeBySonu95 extends AndroidDeveloper {
 
 Have an app idea? Want to collaborate? Just want to talk tech? Feel free to reach out — I'm always open to interesting conversations and projects.
 
-
-![my_github](https://github-readme-stats.vercel.app/api?username=csukuangfj)
 [![Email](https://img.shields.io/badge/Gmail-codebysonu95%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:codebysonu95@gmail.com)
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/codebysonu95)
 [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@CodeBySonu95)
