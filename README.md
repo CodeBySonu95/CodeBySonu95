@@ -11,13 +11,12 @@
 
 ## 👨‍💻 About Me
 
-I'm **Sonu**, an Android developer from India, focused on building **offline-first, on-device AI apps** — no cloud dependency, no tracking, just software that respects the user.
+I'm **Sonu**, a full-stack developer from India — backend, frontend, and UI/UX — with a particular love for building **offline-first, on-device AI apps**. No cloud dependency, no tracking, just software that respects the user.
 
 - 🔭 Currently building **VoxSherpa TTS** — an offline neural text-to-speech engine for Android
-- 🛠️ Working across **Kotlin, Java, on-device AI (ONNX Runtime), and audio processing**
-- 🌱 Interested in **speech synthesis, edge AI, and privacy-respecting mobile software**
+- 🧠 Passionate about **local AI**: agentic AI, text/LLM-based AI, TTS, and on-device AI in general — not tied to one type
+- 🛠️ Working across **Kotlin, Java, JavaScript, backend & frontend development, and ONNX-based on-device inference**
 - 📦 Both apps below are **live, in production, and actively maintained**
-- 📄 License: GNU GPL v3.0
 
 ---
 
@@ -65,10 +64,10 @@ A lightweight Android app to commit and push files to GitHub straight from your 
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=CodeBySonu95&theme=dark&hide_border=false&include_all_commits=true&count_private=true" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=CodeBySonu95&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact" />
+<img height="165" src="./profile/stats.svg" alt="GitHub Stats" />
+<img height="165" src="./profile/top-langs.svg" alt="Top Languages" />
 
-<img src="https://nirzak-streak-stats.vercel.app/?user=CodeBySonu95&theme=dark&hide_border=false" />
+<img src="./profile/streak.svg" alt="GitHub Streak" />
 
 </div>
 
@@ -78,7 +77,7 @@ A lightweight Android app to commit and push files to GitHub straight from your 
 
 <div align="center">
 
-<img src="https://github-profile-trophy.vercel.app/?username=CodeBySonu95&theme=radical&no-frame=false&no-bg=true&margin-w=4" />
+<img src="./profile/trophy.svg" alt="GitHub Trophies" />
 
 </div>
 
