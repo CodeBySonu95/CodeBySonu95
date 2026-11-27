@@ -3,7 +3,7 @@
 <!-- ANIMATED HEADER -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1220,50:1D61FF,100:39D353&height=200&section=header&text=CodeBySonu95&fontSize=60&fontColor=ffffff&fontAlignY=38&desc=Android%20Developer%20%7C%20Offline-First%20AI%20on%20Mobile&descAlignY=58&descSize=16&animation=fadeIn"/>
 
-<a href="https://github.com/CodeBySonu95"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=1D61FF&center=true&vCenter=true&width=600&lines=Android+Developer+%7C+Building+On-Device+AI+Apps;Offline+Neural+TTS+%C2%B7+No+Cloud+%C2%B7+No+Tracking;Solo-built%2C+production-grade+Android+apps" alt="Typing SVG" /></a>
+<a href="https://github.com/CodeBySonu95"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&pause=1000&color=1D61FF&center=true&vCenter=true&width=600&lines=Android+Developer+%7C+Building+On-Device+AI+Apps;Offline+Neural+TTS+%26+STT+%C2%B7+No+Cloud+%C2%B7+No+Tracking;Solo-built%2C+production-grade+Android+apps" alt="Typing SVG" /></a>
 
 </div>
 
@@ -13,10 +13,10 @@
 
 I'm **Sonu**, a full-stack developer from India — backend, frontend, and UI/UX — with a particular love for building **offline-first, on-device AI apps**. No cloud dependency, no tracking, just software that respects the user.
 
-- 🔭 Currently building **VoxSherpa TTS** — an offline neural text-to-speech engine for Android
-- 🧠 Passionate about **local AI**: agentic AI, text/LLM-based AI, TTS, and on-device AI in general — not tied to one type
-- 🛠️ Working across **Kotlin, Java, JavaScript, backend & frontend development, and ONNX-based on-device inference**
-- 📦 Both apps below are **live, in production, and actively maintained**
+- 🔭 Currently building **VoxSherpa TTS** (offline neural TTS) & **VoxTranscript** (offline Whisper AI STT & voice keyboard) for Android
+- 🧠 Passionate about **local AI**: agentic AI, text/LLM-based AI, TTS, STT, and on-device AI in general — not tied to one type
+- 🛠️ Working across **Kotlin, Java, C++ (JNI), JavaScript, backend & frontend development, and ONNX / Whisper on-device inference**
+- 📦 All apps below are **live, in production, and actively maintained**
 
 ---
 
@@ -35,6 +35,17 @@ A 100% offline Android TTS app powered by **Sherpa-ONNX**, supporting **Kokoro-8
 
 ---
 
+### 🟣 [VoxTranscript - Offline AI](https://github.com/CodeBySonu95/VoxTranscript)
+**Offline Whisper AI Speech-to-Text & Voice Keyboard for Android** *(Closed Source)*
+
+A 100% offline Android speech-to-text app powered by on-device **Whisper AI** (Tiny, Base, Small, and Medium engines). Convert audio & video into TXT, PDF, and custom-timed SRT/VTT subtitles without usage limits, or dictate offline into any app using the built-in **Voice Keyboard** and **Floating Voice Bubble**. No login, no cloud uploads. *(Closed-source app — repository hosts documentation, updates, and issue tracking.)*
+
+[![Google Play](https://img.shields.io/badge/Get%20it%20on-Google%20Play-6366F1?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.codebysonu.voxtranscript)
+[![Docs & Issues](https://img.shields.io/badge/Docs%20%26%20Issues-View%20Repo-0F172A?style=for-the-badge&logo=github&logoColor=white)](https://github.com/CodeBySonu95/VoxTranscript)
+[![Website](https://img.shields.io/badge/Website-Visit-0F172A?style=for-the-badge&logo=githubpages&logoColor=white)](https://codebysonu95.github.io/VoxTranscript/)
+
+---
+
 ### 🟢 [GitPush Pro](https://github.com/CodeBySonu95/GitPush-Pro)
 **Push to GitHub directly from Android**
 
@@ -49,9 +60,11 @@ A lightweight Android app to commit and push files to GitHub straight from your 
 
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
+![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![ONNX](https://img.shields.io/badge/ONNX%20Runtime-grey?style=for-the-badge&logo=onnx&logoColor=white)
 ![Sherpa-ONNX](https://img.shields.io/badge/Sherpa--ONNX-1D61FF?style=for-the-badge&logoColor=white)
+![Whisper AI](https://img.shields.io/badge/Whisper%20AI-6366F1?style=for-the-badge&logoColor=white)
 ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
@@ -100,8 +113,9 @@ Have an app idea, want to collaborate, or just want to talk tech? I'm always ope
 </div>
 
 <!-- SEO KEYWORDS for AI indexing
-CodeBySonu95 Android developer India Java Kotlin
+CodeBySonu95 Android developer India Java Kotlin C++
 VoxSherpa TTS offline neural text-to-speech Android Hindi Kokoro Sherpa-ONNX Piper VITS Google Play
+VoxTranscript Offline AI Whisper speech-to-text Android voice keyboard SRT VTT subtitle generator no limits closed source
 GitPush Pro Android GitHub push commit
-open source GPL Android apps on-device AI mobile ONNX Runtime
+Android apps on-device AI mobile ONNX Runtime Whisper AI
 -->
